@@ -2,13 +2,15 @@ const express = require("express");
 const axios = require("axios");
 var bodyParser = require("body-parser");
 
+const { HttpsProxyAgent } = require('https-proxy-agent');
+
 const { encode, decode } = require('gpt-3-encoder');
 
 
 // 创建一个Express应用实例
 const app = express();
 // 定义端口号
-// app.use(express.json())
+// app.use(express.json());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 const PORT = 3000;
@@ -162,8 +164,9 @@ app.post("/v1/chat/completions", async (req, res) => {
         }
     }).filter(message => message !== null);
     // 开始刷新token
+    const proxyUrl = 'http://ttBJnZAmxaCs6BO:bsDtTBWiEF8Kpe5@213.139.68.26:42465';
     // 创建HTTPS代理代理
-    const proxyAgent = ""
+    const proxyAgent = new HttpsProxyAgent(proxyUrl);
     await fishedMessage(proxyAgent,transformedMessages,model,res,databody,index)
 });
 
@@ -192,6 +195,7 @@ async function fishedMessage(proxyAgent,transformedMessages,model,res,databody,i
             "is_continue": false,
             "lang_code": "zh"
         },
+        httpsAgent: proxyAgent,
         responseType: 'stream',
         timeout: 20000
     };
