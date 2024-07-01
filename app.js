@@ -3,10 +3,12 @@ const axios = require("axios");
 var bodyParser = require("body-parser");
 
 const { encode, decode } = require('gpt-3-encoder');
+
+
 // 创建一个Express应用实例
 const app = express();
 // 定义端口号
-// app.use(express.json());
+// app.use(express.json())
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 const PORT = 3000;
