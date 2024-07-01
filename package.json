@@ -16,7 +16,8 @@
     "request": "^2.88.2",
     "gpt-3-encoder": "^1.1.4",
     "axios": "^1.2.3",
-    "qs": "^6.11.0"
+    "qs": "^6.11.0",
+    "https-proxy-agent": "^5.0.0"
   },
   "engines": {
     "node": ">=14"
