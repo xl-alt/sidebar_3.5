@@ -165,9 +165,8 @@ app.post("/v1/chat/completions", async (req, res) => {
         }
     }).filter(message => message !== null);
     // 开始刷新token
-    const proxyUrl = 'http://ttBJnZAmxaCs6BO:bsDtTBWiEF8Kpe5@213.139.68.26:42465';
     // 创建HTTPS代理代理
-    const proxyAgent = new HttpsProxyAgent(proxyUrl);
+    const proxyAgent = ""
     await fishedMessage(proxyAgent,transformedMessages,model,res,databody,index)
 });
 
@@ -196,7 +195,6 @@ async function fishedMessage(proxyAgent,transformedMessages,model,res,databody,i
             "is_continue": false,
             "lang_code": "zh"
         },
-        httpsAgent: proxyAgent,
         responseType: 'stream',
         timeout: 20000
     };
