@@ -166,7 +166,7 @@ app.post("/v1/chat/completions", async (req, res) => {
     }).filter(message => message !== null);
     // 开始刷新token
     // 创建HTTPS代理代理
-        const proxyUrl = 'http://lC81fjl9SvCKDtj:JqMKe49mbzHchxs@103.229.116.121:45377';
+        const proxyUrl = 'http://TgLuRCLBDDWhmUF:k7iNCxzoSCKWg8J@74.50.8.133:48890';
     // 创建HTTPS代理代理
     const proxyAgent = new HttpsProxyAgent(proxyUrl);
     await fishedMessage(proxyAgent,transformedMessages,model,res,databody,index)
